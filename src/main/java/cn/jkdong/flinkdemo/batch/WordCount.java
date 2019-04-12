@@ -51,6 +51,7 @@ public class WordCount {
 			for (String token : tokens) {
 				if (token.length() > 0) {
 					out.collect(new Tuple2<>(token, 1));
+					// aa 1   aa 1    bb 1  cc1
 				}
 			}
 		}

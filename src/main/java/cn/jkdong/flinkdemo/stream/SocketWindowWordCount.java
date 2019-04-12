@@ -40,12 +40,15 @@ public class SocketWindowWordCount {
 					}
 				})
 				.keyBy("word")
-				.timeWindow(Time.seconds(10))
+				.timeWindow(Time.seconds(10),Time.seconds(5))
 				.reduce(new ReduceFunction<WordWithCount>() {
 					@Override
 					public WordWithCount reduce(WordWithCount a, WordWithCount b) {
 						return new WordWithCount(a.word, a.count + b.count);
 					}
+					// 1+2 =3
+					// 	3+3  ...
+
 				});
 
 		// 结果打印
